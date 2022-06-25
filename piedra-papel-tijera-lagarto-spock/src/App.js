@@ -3,8 +3,10 @@ import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Opcion from "./Opcion";
+import { useState } from "react";
 
 function App() {
+  const [eleccionJugador, setEleccionJugador] = useState("");
   const opciones = [
     {
       eleccion: "piedra",
@@ -19,11 +21,23 @@ function App() {
       derrota: "papel",
     },
   ];
+
+  const elegirOpcion = (event) => {
+    setEleccionJugador(event.target.textContent);
+  };
+
   return (
     <div className="App">
+      <div className="jugador">
+        Jugador
+      </div>
+      <div className="eleccion">
+        {eleccionJugador}
+        <p></p>
+      </div>
       <div className="opciones">
         {opciones.map((e, index) => (
-          <Opcion valor={opciones[index]} />
+          <Opcion elegir={elegirOpcion} valor={opciones[index]} />
         ))}
       </div>
       <header className="App-header">
