@@ -26,13 +26,12 @@ const Home = () => {
   };
 
   const contabilizarVictoriaJugador = () => {
-    setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 1)
+    setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 1);
   };
 
   const contabilizarVictoriaMaquina = () => {
-    setContadorDeVictoriasDeDeLaMaquina(contadorDeVictoriasDeLaMaquina + 1)
+    setContadorDeVictoriasDeDeLaMaquina(contadorDeVictoriasDeLaMaquina + 1);
   };
-
 
   const sliderSetings = {
     dots: true,
@@ -80,15 +79,15 @@ const Home = () => {
       <div className="opciones">
         <Slider {...sliderSetings}>
           {opciones.map((e, index) => (
-            <Opcion elegir={elegirOpcion} valor={opciones[index]} />
+            <Opcion elegir={elegirOpcion} valor={opciones[index]} key={index} />
           ))}
         </Slider>
       </div>
       <Resultado
         jugador={eleccionJugador}
         maquina={eleccionMaquina}
-        victoriaJugador = {contabilizarVictoriaJugador}
-        victoriaMaquina = {contabilizarVictoriaMaquina}
+        victoriaJugador={contabilizarVictoriaJugador}
+        victoriaMaquina={contabilizarVictoriaMaquina}
       ></Resultado>
     </>
   );
