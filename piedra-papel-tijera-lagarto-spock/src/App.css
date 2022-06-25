@@ -1,3 +1,6 @@
+body{
+  background-color: #f8f8ff;
+}
 /* .App {
   text-align: center;
   background-color: #f8f8ff;
@@ -54,12 +57,15 @@
   cursor: pointer;
 }
 
-.eleccion-jugador{
-  font-size: 2rem;
-  padding-bottom: 1rem;
+.contador{
+  font-size: 21px;
 }
 
-.eleccion-maquina{
-  font-size: 2rem;
-  padding-bottom: 1rem;
+.eleccion{
+  font-size: 30px;
+}
+
+.resultado{
+  text-align: center;
+  padding-top: 1rem;
 }

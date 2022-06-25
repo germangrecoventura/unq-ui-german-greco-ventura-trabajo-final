@@ -14,11 +14,12 @@ const Resultado = (props) => {
     resultadoFinal = <h1>Ganador: Máquina</h1>;
   } else if (
     props.jugador.eleccion &&
-    props.jugador.eleccion === props.maquina.eleccion) {
+    props.jugador.eleccion === props.maquina.eleccion
+  ) {
     resultadoFinal = <h1>Empate</h1>;
   }
 
-  return <>{resultadoFinal}</>;
+  return <div className="resultado">{resultadoFinal}</div>;
 };
 
 export default Resultado;

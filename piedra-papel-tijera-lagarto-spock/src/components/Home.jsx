@@ -2,15 +2,14 @@ import { useState } from "react";
 import Slider from "react-slick";
 import Resultado from "./Resultado";
 import Opcion from "./Opcion";
-import lagarto from "../images/lagarto.png";
-import piedra from "../images/piedra.png";
-import papel from "../images/papel.png";
-import tijera from "../images/tijera.png";
-import spock from "../images/spock.png";
 
 const Home = () => {
   const [eleccionJugador, setEleccionJugador] = useState({});
   const [eleccionMaquina, setEleccionMaquina] = useState({});
+  const [contadorDeVictoriasDelJugador, setContadorDeVictoriasDelJugador] =
+    useState(0);
+  const [contadorDeVictoriasDeLaMaquina, setContadorDeVictoriasDeDeLaMaquina] =
+    useState(0);
   const opciones = [
     {
       eleccion: "Piedra",
@@ -82,27 +81,25 @@ const Home = () => {
 
   return (
     <>
-      <div className="eleccion-jugador">Jugador: {eleccionJugador.eleccion}</div>
-      {/* <div className="eleccion">
-        {eleccionJugador.eleccion}
-   
-      </div> */}
-      <div className="eleccion-maquina">Maquina: {eleccionMaquina.eleccion}</div>
-      {/* <div className="eleccion">
-        {eleccionMaquina.eleccion}
-        
-      </div> */}
+      <div className="contador">
+        <p>Partidas ganadas por el jugador: {contadorDeVictoriasDelJugador}</p>
+        <p>Partidas ganadas por la Máquina: {contadorDeVictoriasDeLaMaquina}</p>
+      </div>
+      <div className="eleccion">
+        <p>Jugador a elegido: {eleccionJugador.eleccion}</p>
+        <p>Máquina a elegido: {eleccionMaquina.eleccion}</p>
+      </div>
       <div className="opciones">
         <Slider {...sliderSetings}>
           {opciones.map((e, index) => (
             <Opcion elegir={elegirOpcion} valor={opciones[index]} />
           ))}
         </Slider>
-        <Resultado
+      </div>
+      <Resultado
         jugador={eleccionJugador}
         maquina={eleccionMaquina}
       ></Resultado>
-      </div>
     </>
   );
 };
