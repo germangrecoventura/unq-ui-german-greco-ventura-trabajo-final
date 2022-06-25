@@ -2,35 +2,35 @@ import { useState } from "react";
 import Slider from "react-slick";
 import Resultado from "./Resultado";
 import Opcion from "./Opcion";
+import lagarto from "../images/lagarto.png";
+import piedra from "../images/piedra.png";
+import papel from "../images/papel.png";
+import tijera from "../images/tijera.png";
+import spock from "../images/spock.png";
 
 const Home = () => {
   const [eleccionJugador, setEleccionJugador] = useState({});
   const [eleccionMaquina, setEleccionMaquina] = useState({});
   const opciones = [
     {
-      eleccion: "piedra",
-      derrota: ["lagarto", "tijera"],
-      imagen: "./images/piedra.png",
+      eleccion: "Piedra",
+      derrota: ["Lagarto", "Tijera"],
     },
     {
-      eleccion: "papel",
-      derrota: ["piedra", "spock"],
-      imagen: "./images/piedra.png",
+      eleccion: "Papel",
+      derrota: ["Piedra", "Spock"],
     },
     {
-      eleccion: "tijera",
-      derrota: ["papel", "lagarto"],
-      imagen: "./images/piedra.png",
+      eleccion: "Tijera",
+      derrota: ["Papel", "Lagarto"],
     },
     {
-      eleccion: "lagarto",
-      derrota: ["spock", "papel"],
-      imagen: "./images/piedra.png",
+      eleccion: "Lagarto",
+      derrota: ["Spock", "Papel"],
     },
     {
-      eleccion: "spock",
-      derrota: ["tijera", "piedra"],
-      imagen: "./images/piedra.png",
+      eleccion: "Spock",
+      derrota: ["Tijera", "Piedra"],
     },
   ];
 
@@ -82,26 +82,26 @@ const Home = () => {
 
   return (
     <>
-      <Resultado
-        jugador={eleccionJugador}
-        maquina={eleccionMaquina}
-      ></Resultado>
-      <div className="jugador">Jugador</div>
-      <div className="eleccion">
+      <div className="eleccion-jugador">Jugador: {eleccionJugador.eleccion}</div>
+      {/* <div className="eleccion">
         {eleccionJugador.eleccion}
-        <p></p>
-      </div>
-      <div className="maquina">Maquina</div>
-      <div className="eleccion">
+   
+      </div> */}
+      <div className="eleccion-maquina">Maquina: {eleccionMaquina.eleccion}</div>
+      {/* <div className="eleccion">
         {eleccionMaquina.eleccion}
-        <p></p>
-      </div>
+        
+      </div> */}
       <div className="opciones">
         <Slider {...sliderSetings}>
           {opciones.map((e, index) => (
             <Opcion elegir={elegirOpcion} valor={opciones[index]} />
           ))}
         </Slider>
+        <Resultado
+        jugador={eleccionJugador}
+        maquina={eleccionMaquina}
+      ></Resultado>
       </div>
     </>
   );

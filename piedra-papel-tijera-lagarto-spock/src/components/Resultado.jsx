@@ -12,7 +12,9 @@ const Resultado = (props) => {
     props.maquina.derrota.includes(props.jugador.eleccion)
   ) {
     resultadoFinal = <h1>Ganador: Máquina</h1>;
-  } else {
+  } else if (
+    props.jugador.eleccion &&
+    props.jugador.eleccion === props.maquina.eleccion) {
     resultadoFinal = <h1>Empate</h1>;
   }
 
