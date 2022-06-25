@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   const [eleccionJugador, setEleccionJugador] = useState("");
+  const [eleccionMaquina, setEleccionMaquina] = useState("");
   const opciones = [
     {
       eleccion: "piedra",
@@ -24,7 +25,13 @@ function App() {
 
   const elegirOpcion = (event) => {
     setEleccionJugador(event.target.textContent);
+    eleccionRival()
   };
+
+  const eleccionRival = () => {
+    const eleccion = opciones[Math.floor(Math.random() * opciones.length)].eleccion;
+    setEleccionMaquina(eleccion);
+  }
 
   return (
     <div className="App">
@@ -33,6 +40,13 @@ function App() {
       </div>
       <div className="eleccion">
         {eleccionJugador}
+        <p></p>
+      </div>
+      <div className="maquina">
+        Maquina
+      </div>
+      <div className="eleccion">
+        {eleccionMaquina}
         <p></p>
       </div>
       <div className="opciones">
