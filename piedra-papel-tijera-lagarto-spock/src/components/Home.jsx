@@ -2,6 +2,7 @@ import { useState } from "react";
 import Slider from "react-slick";
 import Resultado from "./Resultado";
 import Opcion from "./Opcion";
+import opciones from "./Opciones";
 
 const Home = () => {
   const [eleccionJugador, setEleccionJugador] = useState({});
@@ -10,28 +11,6 @@ const Home = () => {
     useState(0);
   const [contadorDeVictoriasDeLaMaquina, setContadorDeVictoriasDeDeLaMaquina] =
     useState(0);
-  const opciones = [
-    {
-      eleccion: "Piedra",
-      derrota: ["Lagarto", "Tijera"],
-    },
-    {
-      eleccion: "Papel",
-      derrota: ["Piedra", "Spock"],
-    },
-    {
-      eleccion: "Tijera",
-      derrota: ["Papel", "Lagarto"],
-    },
-    {
-      eleccion: "Lagarto",
-      derrota: ["Spock", "Papel"],
-    },
-    {
-      eleccion: "Spock",
-      derrota: ["Tijera", "Piedra"],
-    },
-  ];
 
   const elegirOpcion = (event) => {
     const jugador = opciones.find(
