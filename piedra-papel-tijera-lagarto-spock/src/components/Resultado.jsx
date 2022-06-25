@@ -6,11 +6,13 @@ const Resultado = (props) => {
     props.jugador.eleccion &&
     props.jugador.derrota.includes(props.maquina.eleccion)
   ) {
+    /* props.victoriaJugador */
     resultadoFinal = <h1>Ganador: Jugador</h1>;
   } else if (
     props.jugador.eleccion &&
     props.maquina.derrota.includes(props.jugador.eleccion)
   ) {
+    /* props.victoriaMaquina */
     resultadoFinal = <h1>Ganador: Máquina</h1>;
   } else if (
     props.jugador.eleccion &&

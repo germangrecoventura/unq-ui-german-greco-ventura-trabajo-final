@@ -46,6 +46,15 @@ const Home = () => {
     setEleccionMaquina(eleccion);
   };
 
+  const contabilizarVictoriaJugador = () => {
+    setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 1)
+  };
+
+  const contabilizarVictoriaMaquina = () => {
+    setContadorDeVictoriasDeDeLaMaquina(contadorDeVictoriasDeLaMaquina + 1)
+  };
+
+
   const sliderSetings = {
     dots: true,
     infinite: false,
@@ -99,6 +108,8 @@ const Home = () => {
       <Resultado
         jugador={eleccionJugador}
         maquina={eleccionMaquina}
+        victoriaJugador = {contabilizarVictoriaJugador}
+        victoriaMaquina = {contabilizarVictoriaMaquina}
       ></Resultado>
     </>
   );
