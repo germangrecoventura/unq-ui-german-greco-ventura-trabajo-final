@@ -9,17 +9,27 @@ const Home = () => {
   const opciones = [
     {
       eleccion: "piedra",
-      derrota: ["lagarto","tijera"],
+      derrota: ["lagarto", "tijera"],
       imagen: "./images/piedra.png",
     },
     {
       eleccion: "papel",
-      derrota: ["piedra","spock"],
+      derrota: ["piedra", "spock"],
       imagen: "./images/piedra.png",
     },
     {
       eleccion: "tijera",
-      derrota: ["papel","lagarto"],
+      derrota: ["papel", "lagarto"],
+      imagen: "./images/piedra.png",
+    },
+    {
+      eleccion: "lagarto",
+      derrota: ["spock", "papel"],
+      imagen: "./images/piedra.png",
+    },
+    {
+      eleccion: "spock",
+      derrota: ["tijera", "piedra"],
       imagen: "./images/piedra.png",
     },
   ];
