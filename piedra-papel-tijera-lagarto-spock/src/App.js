@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Opcion from "./Opcion";
 import { useState } from "react";
 import Resultado from "./Resultado";
+import Slider from "react-slick";
 
 function App() {
   const [eleccionJugador, setEleccionJugador] = useState({});
@@ -13,14 +14,17 @@ function App() {
     {
       eleccion: "piedra",
       derrota: "tijera",
+      imagen: "./images/piedra.png"
     },
     {
       eleccion: "papel",
       derrota: "piedra",
+      imagen: "./images/piedra.png"
     },
     {
       eleccion: "tijera",
       derrota: "papel",
+      imagen: "./images/piedra.png"
     },
   ];
 
@@ -37,6 +41,39 @@ function App() {
     setEleccionMaquina(eleccion);
   };
 
+  const sliderSetings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    initialSlide: 0,
+    autoplay: false,
+    responsive: [
+      {
+        breakpoint: 991.98,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 767.98,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 575.98,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="App">
       <Resultado jugador={eleccionJugador} maquina={eleccionMaquina}></Resultado>
@@ -51,9 +88,11 @@ function App() {
         <p></p>
       </div>
       <div className="opciones">
+        <Slider {...sliderSetings}>
         {opciones.map((e, index) => (
           <Opcion elegir={elegirOpcion} valor={opciones[index]} />
         ))}
+        </Slider>
       </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

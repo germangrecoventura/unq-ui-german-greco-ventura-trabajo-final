@@ -1,7 +1,7 @@
 import React from "react"
 
 const Resultado = (props) => {
-    let resultadoFinal;
+    let resultadoFinal = "";
 
     if(props.jugador.derrota === props.maquina.eleccion && props.jugador.eleccion){
         resultadoFinal = <h1>Ganador: Jugador</h1>
