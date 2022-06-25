@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Slider from "react-slick";
-import Resultado from "../Resultado";
-import Opcion from "../Opcion";
+import Resultado from "./Resultado";
+import Opcion from "./Opcion";
 
 const Home = () => {
   const [eleccionJugador, setEleccionJugador] = useState({});
@@ -9,17 +9,17 @@ const Home = () => {
   const opciones = [
     {
       eleccion: "piedra",
-      derrota: "tijera",
+      derrota: ["lagarto","tijera"],
       imagen: "./images/piedra.png",
     },
     {
       eleccion: "papel",
-      derrota: "piedra",
+      derrota: ["piedra","spock"],
       imagen: "./images/piedra.png",
     },
     {
       eleccion: "tijera",
-      derrota: "papel",
+      derrota: ["papel","lagarto"],
       imagen: "./images/piedra.png",
     },
   ];
