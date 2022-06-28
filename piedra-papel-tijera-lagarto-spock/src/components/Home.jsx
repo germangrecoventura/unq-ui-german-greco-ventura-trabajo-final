@@ -1,30 +1,29 @@
 import { useState } from "react";
 import Slider from "react-slick";
-import Resultado from "./Resultado";
-import Opcion from "./Opcion";
-import opciones from "./Opciones";
-import Contador from "./Contador";
-import Eleccion from "./Eleccion";
+import Result from "./Result";
+import Option from "./Option";
+import possibleCases from "./PossibleCases";
+import Counter from "./Counter";
+import Choice from "./Choice";
 
 const Home = () => {
-  const [eleccionJugador, setEleccionJugador] = useState({});
-  const [eleccionMaquina, setEleccionMaquina] = useState({});
-  const [contadorDeVictoriasDelJugador, setContadorDeVictoriasDelJugador] =
-    useState(0);
-  const [contadorDeVictoriasDeLaMaquina, setContadorDeVictoriasDeLaMaquina] =
-    useState(0);
+  const [choicePlayer, setElectionPlayer] = useState({});
+  const [electionMachine, setElectionMachine] = useState({});
+  const [playerVictoryCounter, setPlayerAccounter] = useState(0);
+  const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
 
-  const elegirOpcion = (event) => {
-    const jugador = opciones.find(
-      (e) => e.eleccion === event.target.textContent
+  const chooseOption = (event) => {
+    const player = possibleCases.find(
+      (e) => e.choice === event.target.textContent
     );
-    setEleccionJugador(jugador);
-    eleccionRival();
+    setElectionPlayer(player);
+    electionRival();
   };
 
-  const eleccionRival = () => {
-    const eleccion = opciones[Math.floor(Math.random() * opciones.length)];
-    setEleccionMaquina(eleccion);
+  const electionRival = () => {
+    const choice =
+      possibleCases[Math.floor(Math.random() * possibleCases.length)];
+    setElectionMachine(choice);
   };
 
   const contabilizarVictoriaJugador = () => {
@@ -73,30 +72,36 @@ const Home = () => {
 
   return (
     <>
-      <Contador
-        isMachine={false}
-        firstCount={contadorDeVictoriasDelJugador}
-        secondCount={contadorDeVictoriasDeLaMaquina}
+      <Counter
+        isMachine={true}
+        firstCount={playerVictoryCounter}
+        secondCount={MachineVictoryCounter}
       />
-      <Eleccion
-        firstEleccion={eleccionJugador.eleccion}
-        secondEleccion={eleccionMaquina.eleccion}
+      <Choice
+        isMachine={true}
+        firstEleccion={choicePlayer.choice}
+        secondEleccion={electionMachine.choice}
       />
-      <div className="opciones">
+      <div className="available-options">
         <Slider {...sliderSetings}>
-          {opciones.map((e, index) => (
-            <Opcion elegir={elegirOpcion} valor={opciones[index]} key={index} />
+          {possibleCases.map((e, index) => (
+            <Option
+              choose={chooseOption}
+              value={possibleCases[index]}
+              key={index}
+            />
           ))}
         </Slider>
       </div>
-      <Resultado
-        jugador={eleccionJugador}
-        maquina={eleccionMaquina}
-    /*     victoriaJugador={() =>
+      <Result
+        isMachine={true}
+        firstPlayer={choicePlayer}
+        secondPlayer={electionMachine}
+        /*     victoriaJugador={() =>
           setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 88)
         }
         victoriaMaquina= {() => setContadorDeVictoriasDeLaMaquina(c => c + 1)} */
-      ></Resultado>
+      ></Result>
     </>
   );
 };
