@@ -3,13 +3,15 @@ import Slider from "react-slick";
 import Resultado from "./Resultado";
 import Opcion from "./Opcion";
 import opciones from "./Opciones";
+import Contador from "./Contador";
+import Eleccion from "./Eleccion";
 
 const Home = () => {
   const [eleccionJugador, setEleccionJugador] = useState({});
   const [eleccionMaquina, setEleccionMaquina] = useState({});
   const [contadorDeVictoriasDelJugador, setContadorDeVictoriasDelJugador] =
     useState(0);
-  const [contadorDeVictoriasDeLaMaquina, setContadorDeVictoriasDeDeLaMaquina] =
+  const [contadorDeVictoriasDeLaMaquina, setContadorDeVictoriasDeLaMaquina] =
     useState(0);
 
   const elegirOpcion = (event) => {
@@ -26,11 +28,14 @@ const Home = () => {
   };
 
   const contabilizarVictoriaJugador = () => {
-    setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 1);
+    /* setContadorDeVictoriasDelJugador(ca => ca + 1) */
+    /*     setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 1);
+     */
   };
 
   const contabilizarVictoriaMaquina = () => {
-    setContadorDeVictoriasDeDeLaMaquina(contadorDeVictoriasDeLaMaquina + 1);
+    /*     setContadorDeVictoriasDeDeLaMaquina(contadorDeVictoriasDeLaMaquina + 1);
+     */
   };
 
   const sliderSetings = {
@@ -68,14 +73,15 @@ const Home = () => {
 
   return (
     <>
-      <div className="contador">
-        <p>Partidas ganadas por el jugador: {contadorDeVictoriasDelJugador}</p>
-        <p>Partidas ganadas por la Máquina: {contadorDeVictoriasDeLaMaquina}</p>
-      </div>
-      <div className="eleccion">
-        <p>Jugador a elegido: {eleccionJugador.eleccion}</p>
-        <p>Máquina a elegido: {eleccionMaquina.eleccion}</p>
-      </div>
+      <Contador
+        isMachine={false}
+        firstCount={contadorDeVictoriasDelJugador}
+        secondCount={contadorDeVictoriasDeLaMaquina}
+      />
+      <Eleccion
+        firstEleccion={eleccionJugador.eleccion}
+        secondEleccion={eleccionMaquina.eleccion}
+      />
       <div className="opciones">
         <Slider {...sliderSetings}>
           {opciones.map((e, index) => (
@@ -86,8 +92,10 @@ const Home = () => {
       <Resultado
         jugador={eleccionJugador}
         maquina={eleccionMaquina}
-        victoriaJugador={contabilizarVictoriaJugador}
-        victoriaMaquina={contabilizarVictoriaMaquina}
+    /*     victoriaJugador={() =>
+          setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 88)
+        }
+        victoriaMaquina= {() => setContadorDeVictoriasDeLaMaquina(c => c + 1)} */
       ></Resultado>
     </>
   );
