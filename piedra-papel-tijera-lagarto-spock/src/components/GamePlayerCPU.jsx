@@ -6,7 +6,7 @@ import possibleCases from "./PossibleCases";
 import Counter from "./Counter";
 import Choice from "./Choice";
 
-const Home = () => {
+const GamePlayerCPU = () => {
   const [choicePlayer, setElectionPlayer] = useState({});
   const [electionMachine, setElectionMachine] = useState({});
   const [playerVictoryCounter, setPlayerAccounter] = useState(0);
@@ -106,4 +106,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GamePlayerCPU;
