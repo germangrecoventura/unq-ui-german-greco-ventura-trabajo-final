@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Slider from "react-slick";
-import Result from "./Result";
-import Option from "./Option";
-import possibleCases from "./PossibleCases";
-import Counter from "./Counter";
-import Choice from "./Choice";
+import Option from "../Option";
+import Counter from "../Counter";
+import possibleCases from "../Option/PossibleCases"
+import Choice from "../Choice/Choice";
+import Result from "../Result";
 
 const GamePlayerCPU = () => {
   const [choicePlayer, setElectionPlayer] = useState({});

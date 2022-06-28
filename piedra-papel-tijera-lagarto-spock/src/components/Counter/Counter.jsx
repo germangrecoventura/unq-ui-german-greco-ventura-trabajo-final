@@ -1,3 +1,5 @@
+import "./Counter.css";
+
 const Counter = (props) => {
   const player = props.isMachine ? "CPU" : "Player Two";
 
