@@ -4,7 +4,7 @@ import Counter from "./Counter";
 import Option from "./Option";
 import possibleCases from "./Option/PossibleCases";
 import { useState } from "react";
-import ResultTwoPlayer from "./ResultTwoPlayer";
+import Result from "./Result";
 
 const GamePlayerPlayer = () => {
   const [choicePlayer, setElectionPlayer] = useState({});
@@ -16,8 +16,8 @@ const GamePlayerPlayer = () => {
     const player = possibleCases.find(
       (e) => e.choice === event.target.textContent
     );
-    setElectionMachine({})
-    setElectionPlayer({})
+    setElectionMachine({});
+    setElectionPlayer({});
     setElectionPlayer(player);
   };
 
@@ -64,12 +64,12 @@ const GamePlayerPlayer = () => {
   return (
     <>
       <Counter
-        isMachine={true}
+        isMachine={false}
         firstCount={playerVictoryCounter}
         secondCount={MachineVictoryCounter}
       />
       <Choice
-        isMachine={true}
+        isMachine={false}
         firstEleccion={choicePlayer.choice}
         secondEleccion={electionMachine.choice}
       />
@@ -88,6 +88,7 @@ const GamePlayerPlayer = () => {
         <Slider {...sliderSetings}>
           {possibleCases.map((e, index) => (
             <Option
+              background={"two"}
               choose={chooseOptionPlayerTwo}
               value={possibleCases[index]}
               key={index}
@@ -95,12 +96,11 @@ const GamePlayerPlayer = () => {
           ))}
         </Slider>
       </div>
-      <ResultTwoPlayer
-        isMachine={true}
+      <Result
+        isMachine={false}
         firstPlayer={choicePlayer}
         secondPlayer={electionMachine}
-      >
-      </ResultTwoPlayer>
+      ></Result>
     </>
   );
 };

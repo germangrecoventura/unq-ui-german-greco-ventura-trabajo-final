@@ -1,6 +1,7 @@
 .available-options {
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 .option {
@@ -10,4 +11,8 @@
   border-radius: 40rem;
   padding: 1rem;
   cursor: pointer;
+}
+
+.two{
+  background-color: red;
 }
