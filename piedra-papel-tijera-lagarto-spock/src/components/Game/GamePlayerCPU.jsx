@@ -2,7 +2,7 @@ import { useState } from "react";
 import Slider from "react-slick";
 import Option from "../Option";
 import Counter from "../Counter";
-import possibleCases from "../Option/PossibleCases"
+import possibleCases from "../Option/PossibleCases";
 import Choice from "../Choice/Choice";
 import Result from "../Result";
 
@@ -72,6 +72,10 @@ const GamePlayerCPU = () => {
 
   return (
     <>
+      <div className="tittle-game">
+        <h1> Rock, Paper, Scissors, Lizard, Spock</h1>
+        <h1> Player VS CPU </h1>
+      </div>
       <Counter
         isMachine={true}
         firstCount={playerVictoryCounter}

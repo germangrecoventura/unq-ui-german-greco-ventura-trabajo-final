@@ -1,10 +1,11 @@
 import Slider from "react-slick";
-import Choice from "./Choice/Choice";
-import Counter from "./Counter";
-import Option from "./Option";
-import possibleCases from "./Option/PossibleCases";
+import Choice from "../Choice/Choice";
+import Counter from "../Counter";
+import Option from "../Option";
+import possibleCases from "../Option/PossibleCases";
 import { useState } from "react";
-import Result from "./Result";
+import Result from "../Result";
+import SliderSetings from "./SliderSetings";
 
 const GamePlayerPlayer = () => {
   const [choicePlayer, setElectionPlayer] = useState({});
@@ -28,41 +29,12 @@ const GamePlayerPlayer = () => {
     setElectionMachine(player);
   };
 
-  const sliderSetings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    initialSlide: 0,
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 991.98,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 767.98,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 575.98,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <>
+      <div className="tittle-game">
+        <h1> Rock, Paper, Scissors, Lizard, Spock</h1>
+        <h1> Player VS Player </h1>
+      </div>
       <Counter
         isMachine={false}
         firstCount={playerVictoryCounter}
@@ -74,7 +46,7 @@ const GamePlayerPlayer = () => {
         secondEleccion={electionMachine.choice}
       />
       <div className="available-options">
-        <Slider {...sliderSetings}>
+        <Slider {...SliderSetings}>
           {possibleCases.map((e, index) => (
             <Option
               choose={chooseOptionPlayer}
@@ -85,7 +57,7 @@ const GamePlayerPlayer = () => {
         </Slider>
       </div>
       <div className="available-options">
-        <Slider {...sliderSetings}>
+        <Slider {...SliderSetings}>
           {possibleCases.map((e, index) => (
             <Option
               background={"two"}
