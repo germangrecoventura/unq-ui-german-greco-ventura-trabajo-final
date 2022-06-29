@@ -5,6 +5,8 @@ import Counter from "../Counter";
 import possibleCases from "../Option/PossibleCases";
 import Choice from "../Choice/Choice";
 import Result from "../Result";
+import SliderSetings from "./SliderSetings";
+import "./Game.css";
 
 const GamePlayerCPU = () => {
   const [choicePlayer, setElectionPlayer] = useState({});
@@ -37,39 +39,6 @@ const GamePlayerCPU = () => {
      */
   };
 
-  const sliderSetings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    initialSlide: 0,
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 991.98,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 767.98,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 575.98,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <div className="tittle-game">
@@ -87,7 +56,7 @@ const GamePlayerCPU = () => {
         secondEleccion={electionMachine.choice}
       />
       <div className="available-options">
-        <Slider {...sliderSetings}>
+        <Slider {...SliderSetings}>
           {possibleCases.map((e, index) => (
             <Option
               choose={chooseOption}

@@ -6,6 +6,7 @@ import possibleCases from "../Option/PossibleCases";
 import { useState } from "react";
 import Result from "../Result";
 import SliderSetings from "./SliderSetings";
+import "./Game.css";
 
 const GamePlayerPlayer = () => {
   const [choicePlayer, setElectionPlayer] = useState({});
