@@ -1,7 +1,11 @@
-.available-options {
+.available-options{
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
   padding-bottom: 2rem;
+}
+
+.ocultar{
+  display: none;
 }
 
 .option {

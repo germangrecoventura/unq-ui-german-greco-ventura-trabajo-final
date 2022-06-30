@@ -3,12 +3,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import GamePlayerCPU from "./components/Game/GamePlayerCPU";
 import GamePlayerPlayer from "./components/Game/GamePlayerPlayer";
+import Home from "./components/Home/Home";
+import { Routes,Route,BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <GamePlayerCPU />
-      <GamePlayerPlayer />
+      <BrowserRouter>
+        <div className="container p-2">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/one-player" element={<GamePlayerCPU />} />
+            <Route path="/two-players" element={<GamePlayerPlayer />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      {/* <Home></Home>
+      <GamePlayerCPU /> */}
+      {/* <GamePlayerPlayer /> */}
     </div>
   );
 }
