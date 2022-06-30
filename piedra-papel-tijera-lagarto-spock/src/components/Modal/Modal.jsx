@@ -8,20 +8,40 @@ import "./Modal.css";
 
 function Modal(props) {
   const [modal, setModal] = useState(false);
+  const [winner, setWinner] = useState("");
   const [choicePlayer, setElectionPlayer] = useState({});
   const [electionMachine, setElectionMachine] = useState({});
-  const [playerVictoryCounter, setPlayerAccounter] = useState(0);
-  const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
 
-  const player = props.isMachine ? "CPU" : "Player Two";
-  let winner;
+  const playerGame = props.isMachine ? "CPU" : "Player Two";
 
   const toggleModal = (event) => {
     const player = PossibleCases.find(
       (e) => e.choice === event.target.textContent
     );
     setElectionPlayer(player);
-    electionRival();
+    const maquina = electionRival();
+    if (
+      player.choice &&
+      maquina.choice &&
+      player.defeat.includes(maquina.choice)
+    ) {
+      props.sumarPlayer()
+      setWinner("Winner: Player One")
+    } else if (
+      player.choice &&
+      maquina.choice &&
+      maquina.defeat.includes(player.choice)
+    ) {
+      props.sumarMaquina()
+      let a = playerGame
+      setWinner(`Winner: ${playerGame}`)
+    } else if (
+      player.choice &&
+      maquina.choice &&
+      player.choice === maquina.choice
+    ) {
+      setWinner("Tie")
+    }
     setModal(!modal);
   };
 
@@ -29,34 +49,15 @@ function Modal(props) {
     const choice =
       PossibleCases[Math.floor(Math.random() * PossibleCases.length)];
     setElectionMachine(choice);
+    return choice
   };
 
   const continueGame = () => {
     setElectionMachine({});
     setElectionPlayer({});
+    setWinner("")
     setModal(!modal);
   };
-
-  if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    choicePlayer.defeat.includes(electionMachine.choice)
-  ) {
-    /* setPlayerAccounter(c => c + 1) */
-    winner = <h1>Winner: Player One</h1>;
-  } else if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    electionMachine.defeat.includes(choicePlayer.choice)
-  ) {
-    winner = <h1>Winner: {player}</h1>;
-  } else if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    choicePlayer.choice === electionMachine.choice
-  ) {
-    winner = <h1>Tie</h1>;
-  }
 
   return (
     <div>
@@ -76,11 +77,10 @@ function Modal(props) {
         <div className="modal">
           <div onClick={continueGame} className="overlay"></div>
           <div className="modal-content">
-            {winner} {/* <h1>Maquina : {electionMachine}</h1> */}
-            {/* <h1>Maquina : {choicePlayer}</h1> */}
+            <h1>{winner}</h1>
             <h2>Player One a chosen: {choicePlayer.choice}</h2>
             <h2>
-              {player} a chosen: {electionMachine.choice}
+              {playerGame} a chosen: {electionMachine.choice}
             </h2>
             <button onClick={continueGame} className="close-modal">
               Continue Game

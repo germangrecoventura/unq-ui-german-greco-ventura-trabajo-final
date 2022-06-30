@@ -6,14 +6,13 @@ import Modal from "../Modal/Modal";
 const GamePlayerCPU = () => {
   const [playerVictoryCounter, setPlayerAccounter] = useState(0);
   const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
-  
+
   return (
     <div className="game">
       <div className="tittle-game">
         <h1> Rock, Paper, Scissors, Lizard, Spock</h1>
         <h1> Player VS CPU </h1>
       </div>
-      {playerVictoryCounter}
       <Counter
         isMachine={true}
         firstCount={playerVictoryCounter}
