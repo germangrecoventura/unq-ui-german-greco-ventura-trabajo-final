@@ -1,10 +1,10 @@
 .banner{
     text-align: center;
+    background-color: antiquewhite;
+    border-radius: 3rem;
 }
 
 .image-game{
-
     cursor: pointer;
-    padding-left: 4rem;
-    max-width: 14rem;
+    max-width: 19rem;
 }
