@@ -1,0 +1,10 @@
+.banner{
+    text-align: center;
+}
+
+.image-game{
+
+    cursor: pointer;
+    padding-left: 4rem;
+    max-width: 14rem;
+}
