@@ -14,7 +14,7 @@ const GamePlayerCPU = () => {
   const [electionMachine, setElectionMachine] = useState({});
   const [playerVictoryCounter, setPlayerAccounter] = useState(0);
   const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
-  const [ver, setVer] = useState(true);
+  const [modal, setModal] = useState(false);
 
   const chooseOption = (event) => {
     const player = possibleCases.find(
@@ -32,40 +32,31 @@ const GamePlayerCPU = () => {
 
   let winner;
 
-  if (
+  /* if (
     choicePlayer.choice &&
     electionMachine.choice &&
-    choicePlayer.defeat.includes(electionMachine.choice)
-  ) {
-    /* props.victoriaJugador() */
-    setElectionPlayer({});
+    choicePlayer.defeat.includes(electionMachine.choice)) {
     setElectionMachine({});
-    setVer(false)
-    setPlayerAccounter((c) => c + 1);
+    setElectionPlayer({});
+    setPlayerAccounter((y) => y + 1);
     winner = <h1>Winner: Player One</h1>;
   } else if (
     choicePlayer.choice &&
     electionMachine.choice &&
     electionMachine.defeat.includes(choicePlayer.choice)
   ) {
-    /* props.victoriaMaquina() */
-    setVer(false)
-    setElectionPlayer({});
     setElectionMachine({});
-    setMachineVictoryCounter((c) => c + 1);
+    setElectionPlayer({});
+    setMachineVictoryCounter(c => c + 1);
     winner = <h1>Winner: Maquina</h1>;
   } else if (
     choicePlayer.choice &&
     electionMachine.choice &&
-    choicePlayer.choice === electionMachine.choice
-  ) {
-    setVer(false)
+    choicePlayer.choice === electionMachine.choice) {
+      setElectionMachine({});
     setElectionPlayer({});
-    setElectionMachine({});
     winner = <h1>Tie</h1>;
-  }
-
-  const ala = ver ? "" : "ocultar";
+  } */
 
   return (
     <>
@@ -83,8 +74,8 @@ const GamePlayerCPU = () => {
         firstEleccion={choicePlayer.choice}
         secondEleccion={electionMachine.choice}
       /> */}
-      
-      <div className={`available-options ${ala}`}>
+
+      {/* <div className={`available-options`}>
         <Slider {...SliderSetings}>
           {possibleCases.map((e, index) => (
             <Option
@@ -94,17 +85,21 @@ const GamePlayerCPU = () => {
             />
           ))}
         </Slider>
-      </div>
-          <Modal></Modal>
-      <Result
+      </div> */}
+      <Modal
+        isMachine={true}
+        sumarPlayer={() => setPlayerAccounter((c) => c + 1)}
+        sumarMaquina={() => setMachineVictoryCounter((c) => c + 1)}
+      ></Modal>
+      {/* <Result
         isMachine={true}
         firstPlayer={choicePlayer}
         secondPlayer={electionMachine}
-        /*     victoriaJugador={() =>
-          setContadorDeVictoriasDelJugador(contadorDeVictoriasDelJugador + 88)
-        }
-        victoriaMaquina= {() => setContadorDeVictoriasDeLaMaquina(c => c + 1)} */
-      ></Result>
+        borrarPlayer={setElectionPlayer}
+        borrarMaquina={setElectionMachine}
+        sumarPlayer={() => setPlayerAccounter((c) => c + 1)}
+        sumarMaquina={() => setMachineVictoryCounter((c) => c + 1)}
+      ></Result> */}
     </>
   );
 };
