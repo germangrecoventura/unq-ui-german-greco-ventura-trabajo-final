@@ -6,8 +6,7 @@ import Modal from "../Modal/Modal";
 const GamePlayerCPU = () => {
   const [playerVictoryCounter, setPlayerAccounter] = useState(0);
   const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
-  const [modal, setModal] = useState(false);
-
+  
   return (
     <div className="game">
       <div className="tittle-game">

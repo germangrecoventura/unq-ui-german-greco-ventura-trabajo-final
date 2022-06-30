@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <div className="banner">
         <div className="tittle-game">
           <h1> Rock, Paper, Scissors, Lizard, Spock</h1>
