@@ -2,7 +2,7 @@ import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import GamePlayerCPU from "./components/Game/GamePlayerCPU";
-import GamePlayerPlayer from "./components/Game/GamePlayerPlayer";
+import GamePlayerPlayerFinal from "./components/Game/GamePlayerPlayerFinal";
 import Home from "./components/Home/Home";
 import { Routes,Route,BrowserRouter } from "react-router-dom";
 
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/one-player" element={<GamePlayerCPU />} />
-            <Route path="/two-players" element={<GamePlayerPlayer />} />
+            <Route path="/two-players" element={<GamePlayerPlayerFinal />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </div>
