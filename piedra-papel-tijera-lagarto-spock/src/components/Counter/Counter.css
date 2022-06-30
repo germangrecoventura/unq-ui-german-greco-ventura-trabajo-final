@@ -1,3 +1,7 @@
 .counter {
   font-size: 30px;
 }
+
+.image-count{
+ max-width: 2rem;
+}

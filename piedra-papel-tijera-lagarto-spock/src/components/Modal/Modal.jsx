@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import SliderSetings from "../Game/SliderSetings";
 import Option from "../Option";
@@ -30,7 +31,7 @@ function Modal(props) {
     setElectionMachine(choice);
   };
 
-  const alal = () => {
+  const continueGame = () => {
     setElectionMachine({});
     setElectionPlayer({});
     setModal(!modal);
@@ -70,26 +71,23 @@ function Modal(props) {
           ))}
         </Slider>
       </div>
-      {/* <button onClick={toggleModal} className="btn-modal">
-        ABRIIIMEEE
-      </button> */}
 
       {modal && (
         <div className="modal">
-          <div onClick={alal} className="overlay"></div>
+          <div onClick={continueGame} className="overlay"></div>
           <div className="modal-content">
             {winner} {/* <h1>Maquina : {electionMachine}</h1> */}
             {/* <h1>Maquina : {choicePlayer}</h1> */}
-            <p>Player One a chosen: {choicePlayer.choice}</p>
-            <p>
+            <h2>Player One a chosen: {choicePlayer.choice}</h2>
+            <h2>
               {player} a chosen: {electionMachine.choice}
-            </p>
-            <button onClick={alal} className="close-modal">
+            </h2>
+            <button onClick={continueGame} className="close-modal">
               Continue Game
             </button>
-            <button onClick={alal} className="close-modal">
-              Main Menu
-            </button>
+            <Link to="/">
+              <button className="close-modal">Main Menu</button>
+            </Link>
           </div>
         </div>
       )}
