@@ -10,70 +10,63 @@ function ModalTwoPlayers(props) {
   const [modal, setModal] = useState(false);
   const [choicePlayer, setElectionPlayer] = useState({});
   const [electionMachine, setElectionMachine] = useState({});
+  const [winner, setWinner] = useState("");
   const [hidePlayerOne, setHidePlayerOne] = useState("");
   const [hidePlayerTwo, setHidePlayerTwo] = useState("hide");
-  const [playerVictoryCounter, setPlayerAccounter] = useState(0);
-  const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
 
-  const player = props.isMachine ? "CPU" : "Player Two";
-  let winner;
+  const playerGame = props.isMachine ? "CPU" : "Player Two";
 
   const toggleModalPlayerOne = (event) => {
     const player = PossibleCases.find(
       (e) => e.choice === event.target.textContent
     );
     setElectionPlayer(player);
-    setHidePlayerOne("hide")
-    setHidePlayerTwo("")
+    setHidePlayerOne("hide");
+    setHidePlayerTwo("");
   };
 
   const toggleModalPlayerTwo = (event) => {
-    const player = PossibleCases.find(
+    const playerTwo = PossibleCases.find(
       (e) => e.choice === event.target.textContent
     );
-    setElectionMachine(player);
+    setElectionMachine(playerTwo);
     setModal(!modal);
-  };
-
-  const electionRival = () => {
-    const choice =
-      PossibleCases[Math.floor(Math.random() * PossibleCases.length)];
-    setElectionMachine(choice);
+    if (
+      choicePlayer.choice &&
+      playerTwo.choice &&
+      choicePlayer.defeat.includes(playerTwo.choice)
+    ) {
+      props.sumarPlayer();
+      setWinner("Winner: Player One");
+    } else if (
+      choicePlayer.choice &&
+      playerTwo.choice &&
+      playerTwo.defeat.includes(choicePlayer.choice)
+    ) {
+      props.sumarMaquina();
+      setWinner(`Winner: ${playerGame}`);
+    } else if (
+      choicePlayer.choice &&
+      playerTwo.choice &&
+      choicePlayer.choice === playerTwo.choice
+    ) {
+      setWinner("Tie");
+    }
   };
 
   const continueGame = () => {
     setElectionMachine({});
     setElectionPlayer({});
-    setHidePlayerOne("")
-    setHidePlayerTwo("hide")
+    setHidePlayerOne("");
+    setWinner("");
+    setHidePlayerTwo("hide");
     setModal(!modal);
   };
 
-  if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    choicePlayer.defeat.includes(electionMachine.choice)
-  ) {
-    /* setPlayerAccounter(c => c + 1) */
-    winner = <h1>Winner: Player One</h1>;
-  } else if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    electionMachine.defeat.includes(choicePlayer.choice)
-  ) {
-    winner = <h1>Winner: {player}</h1>;
-  } else if (
-    choicePlayer.choice &&
-    electionMachine.choice &&
-    choicePlayer.choice === electionMachine.choice
-  ) {
-    winner = <h1>Tie</h1>;
-  }
-
   return (
     <div>
-      <div className={`available-options ${hidePlayerOne}` }>
-      Select Player One:
+      <div className={`available-options ${hidePlayerOne}`}>
+        Select Player One:
         <Slider {...SliderSetings}>
           {PossibleCases.map((e, index) => (
             <Option
@@ -85,7 +78,7 @@ function ModalTwoPlayers(props) {
         </Slider>
       </div>
       <div className={`available-options ${hidePlayerTwo}`}>
-      Select Player Two:
+        Select Player Two:
         <Slider {...SliderSetings}>
           {PossibleCases.map((e, index) => (
             <Option
@@ -101,11 +94,10 @@ function ModalTwoPlayers(props) {
         <div className="modal">
           <div onClick={continueGame} className="overlay"></div>
           <div className="modal-content">
-            {winner} {/* <h1>Maquina : {electionMachine}</h1> */}
-            {/* <h1>Maquina : {choicePlayer}</h1> */}
+            {winner}
             <h2>Player One a chosen: {choicePlayer.choice}</h2>
             <h2>
-              {player} a chosen: {electionMachine.choice}
+              {playerGame} a chosen: {electionMachine.choice}
             </h2>
             <button onClick={continueGame} className="close-modal">
               Continue Game

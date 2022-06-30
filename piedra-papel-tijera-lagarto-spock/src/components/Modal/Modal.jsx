@@ -25,22 +25,21 @@ function Modal(props) {
       maquina.choice &&
       player.defeat.includes(maquina.choice)
     ) {
-      props.sumarPlayer()
-      setWinner("Winner: Player One")
+      props.sumarPlayer();
+      setWinner("Winner: Player One");
     } else if (
       player.choice &&
       maquina.choice &&
       maquina.defeat.includes(player.choice)
     ) {
-      props.sumarMaquina()
-      let a = playerGame
-      setWinner(`Winner: ${playerGame}`)
+      props.sumarMaquina();
+      setWinner(`Winner: ${playerGame}`);
     } else if (
       player.choice &&
       maquina.choice &&
       player.choice === maquina.choice
     ) {
-      setWinner("Tie")
+      setWinner("Tie");
     }
     setModal(!modal);
   };
@@ -49,13 +48,13 @@ function Modal(props) {
     const choice =
       PossibleCases[Math.floor(Math.random() * PossibleCases.length)];
     setElectionMachine(choice);
-    return choice
+    return choice;
   };
 
   const continueGame = () => {
     setElectionMachine({});
     setElectionPlayer({});
-    setWinner("")
+    setWinner("");
     setModal(!modal);
   };
 
