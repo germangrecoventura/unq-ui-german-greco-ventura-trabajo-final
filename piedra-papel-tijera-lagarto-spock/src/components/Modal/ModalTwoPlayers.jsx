@@ -85,7 +85,7 @@ function ModalTwoPlayers(props) {
         </Slider>
       </div>
       <div className={`available-options ${hidePlayerTwo}`}>
-      Select Player Two: 
+      Select Player Two:
         <Slider {...SliderSetings}>
           {PossibleCases.map((e, index) => (
             <Option
