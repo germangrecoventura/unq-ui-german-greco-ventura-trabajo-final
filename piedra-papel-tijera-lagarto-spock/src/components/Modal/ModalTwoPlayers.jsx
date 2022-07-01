@@ -94,7 +94,7 @@ function ModalTwoPlayers(props) {
         <div className="modal">
           <div onClick={continueGame} className="overlay"></div>
           <div className="modal-content">
-            {winner}
+            <h1>{winner}</h1>
             <h2>Player One a chosen: {choicePlayer.choice}</h2>
             <h2>
               {playerGame} a chosen: {electionMachine.choice}

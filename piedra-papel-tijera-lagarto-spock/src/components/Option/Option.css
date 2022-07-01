@@ -12,7 +12,7 @@
 .option {
   color: black;
   font-size: 30px;
-  background-color: antiquewhite;
+  background-color: rgba(255, 255, 255, 0.493);
   border: 1px solid black;
   border-radius: 40rem;
   padding: 1rem;
