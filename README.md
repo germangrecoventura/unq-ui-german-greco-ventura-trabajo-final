@@ -6,11 +6,11 @@ Download and install the project:
     It is necessary to install Node.js to run the project (https://nodejs.org/es/download/ <- node page, download LTS version)
 
 • Installation steps:
-    1 - If you have git installed on your computer open the git console and enter the command
+1 - If you have git installed on your computer open the git console and enter the command
 
             git clone https://github.com/germangrecoventura/unq-ui-german-greco-ventura-trabajo-final.git
 
-        Otherwise download the repository zip and extract it
+Otherwise download the repository zip and extract it
         
             https://github.com/germangrecoventura/unq-ui-german-greco-ventura-trabajo-final (Repository Link)
 
