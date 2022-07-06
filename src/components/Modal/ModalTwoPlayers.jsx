@@ -8,8 +8,8 @@ import ModalResult from "./ModalResult";
 
 function ModalTwoPlayers(props) {
   const [modal, setModal] = useState(false);
-  const [choicePlayer, setElectionPlayer] = useState({});
-  const [electionMachine, setElectionMachine] = useState({});
+  const [electionPlayerOne, setElectionPlayerOne] = useState({});
+  const [electionPlayerTwo, setElectionPlayerTwo] = useState({});
   const [winner, setWinner] = useState("");
   const [hidePlayerOne, setHidePlayerOne] = useState("");
   const [hidePlayerTwo, setHidePlayerTwo] = useState("hide");
@@ -20,7 +20,7 @@ function ModalTwoPlayers(props) {
     const player = PossibleCases.find(
       (e) => e.choice === event.target.textContent
     );
-    setElectionPlayer(player);
+    setElectionPlayerOne(player);
     setHidePlayerOne("hide");
     setHidePlayerTwo("");
   };
@@ -29,34 +29,34 @@ function ModalTwoPlayers(props) {
     const playerTwo = PossibleCases.find(
       (e) => e.choice === event.target.textContent
     );
-    setElectionMachine(playerTwo);
+    setElectionPlayerTwo(playerTwo);
     setModal(!modal);
     if (
-      choicePlayer.choice &&
+      electionPlayerOne.choice &&
       playerTwo.choice &&
-      choicePlayer.defeat.includes(playerTwo.choice)
+      electionPlayerOne.defeat.includes(playerTwo.choice)
     ) {
       props.addPlayerOneWinner();
       setWinner("Winner: Player One");
     } else if (
-      choicePlayer.choice &&
+      electionPlayerOne.choice &&
       playerTwo.choice &&
-      playerTwo.defeat.includes(choicePlayer.choice)
+      playerTwo.defeat.includes(electionPlayerOne.choice)
     ) {
       props.addPlayerTwoWinner();
       setWinner(`Winner: ${playerGame}`);
     } else if (
-      choicePlayer.choice &&
+      electionPlayerOne.choice &&
       playerTwo.choice &&
-      choicePlayer.choice === playerTwo.choice
+      electionPlayerOne.choice === playerTwo.choice
     ) {
       setWinner("Tie");
     }
   };
 
   const continueGame = () => {
-    setElectionMachine({});
-    setElectionPlayer({});
+    setElectionPlayerTwo({});
+    setElectionPlayerOne({});
     setHidePlayerOne("");
     setWinner("");
     setHidePlayerTwo("hide");
@@ -95,8 +95,8 @@ function ModalTwoPlayers(props) {
           click={continueGame}
           winner={winner}
           secondPlayer={playerGame}
-          firstElection={choicePlayer.choice}
-          secondElection={electionMachine.choice}
+          firstElection={electionPlayerOne.choice}
+          secondElection={electionPlayerTwo.choice}
         />
       )}
     </div>
