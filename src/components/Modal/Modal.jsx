@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import SliderSetings from "../Game/SliderSetings";
 import Option from "../Option";
 import PossibleCases from "../Option/PossibleCases";
 import "./Modal.css";
+import ModalResult from "./ModalResult";
 
 function Modal(props) {
   const [modal, setModal] = useState(false);
@@ -73,22 +73,13 @@ function Modal(props) {
       </div>
 
       {modal && (
-        <div className="modal">
-          <div onClick={continueGame} className="overlay"></div>
-          <div className="modal-content">
-            <h1>{winner}</h1>
-            <h2>Player One a chosen: {choicePlayer.choice}</h2>
-            <h2>
-              {playerGame} a chosen: {electionMachine.choice}
-            </h2>
-            <button onClick={continueGame} className="close-modal">
-              Continue Game
-            </button>
-            <Link to="/">
-              <button className="close-modal">Main Menu</button>
-            </Link>
-          </div>
-        </div>
+        <ModalResult
+          click={continueGame}
+          winner={winner}
+          secondPlayer={playerGame}
+          firstElection={choicePlayer.choice}
+          secondElection={electionMachine.choice}
+        />
       )}
     </div>
   );
