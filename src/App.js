@@ -7,10 +7,11 @@ import Home from "./components/Home/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <div class="title">Rock, Paper, Scissors, Lizard, Spock</div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/one-player" element={<GamePlayerCPU />} />
@@ -20,6 +21,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

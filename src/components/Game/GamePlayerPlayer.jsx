@@ -10,7 +10,6 @@ const GamePlayerPlayer = () => {
   return (
     <div className="game">
       <div className="tittle-game">
-        <h1> Rock, Paper, Scissors, Lizard, Spock</h1>
         <h1> Player VS Player </h1>
       </div>
       <Counter

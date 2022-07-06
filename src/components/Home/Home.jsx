@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="home">
-      <div class="title">Rock, Paper, Scissors, Lizard, Spock</div>
       <div className="selector-games">
         <h2> Select your game mode</h2>
         <Link to="/one-player">
