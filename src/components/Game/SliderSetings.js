@@ -10,21 +10,21 @@ const SliderSetings = {
     {
       breakpoint: 991.98,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 4,
         slidesToScroll: 2,
       },
     },
     {
       breakpoint: 767.98,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
       },
     },
     {
       breakpoint: 575.98,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
       },
     },
