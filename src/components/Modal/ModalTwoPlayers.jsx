@@ -6,7 +6,7 @@ import PossibleCases from "../Option/PossibleCases";
 import "./Modal.css";
 import ModalResult from "./ModalResult";
 
-function ModalTwoPlayers(props) {
+const ModalTwoPlayers = (props) => {
   const [modal, setModal] = useState(false);
   const [electionPlayerOne, setElectionPlayerOne] = useState({});
   const [electionPlayerTwo, setElectionPlayerTwo] = useState({});
@@ -101,6 +101,6 @@ function ModalTwoPlayers(props) {
       )}
     </div>
   );
-}
+};
 
 export default ModalTwoPlayers;

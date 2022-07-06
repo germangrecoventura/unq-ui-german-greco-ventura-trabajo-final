@@ -6,7 +6,7 @@ import PossibleCases from "../Option/PossibleCases";
 import "./Modal.css";
 import ModalResult from "./ModalResult";
 
-function Modal(props) {
+const ModalOnePlayer = (props) => {
   const [modal, setModal] = useState(false);
   const [winner, setWinner] = useState("");
   const [electionPlayer, setElectionPlayer] = useState({});
@@ -83,6 +83,6 @@ function Modal(props) {
       )}
     </div>
   );
-}
+};
 
-export default Modal;
+export default ModalOnePlayer;
