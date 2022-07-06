@@ -1,11 +1,11 @@
-.available-options{
+.available-options {
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
   padding-bottom: 2rem;
   font-size: 25px;
 }
 
-.ocultar{
+.ocultar {
   display: none;
 }
 
@@ -19,6 +19,6 @@
   cursor: pointer;
 }
 
-.two{
+.two {
   background-color: rgba(0, 0, 0, 0.911);
 }
