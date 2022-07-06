@@ -10,7 +10,9 @@ const NotFound = () => {
           <span className="text-danger">Oh!</span> Page not found.
         </p>
         <p className="lead">The requested URL was not found on our server.</p>
-        <Link to="/">Go to the homepage</Link>
+        <Link to="/">
+          <button className="return-main-menu">Go to the homepage</button>
+        </Link>
       </div>
     </div>
   );
