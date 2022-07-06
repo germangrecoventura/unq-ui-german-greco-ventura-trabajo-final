@@ -9,7 +9,7 @@ import ModalResult from "./ModalResult";
 function Modal(props) {
   const [modal, setModal] = useState(false);
   const [winner, setWinner] = useState("");
-  const [choicePlayer, setElectionPlayer] = useState({});
+  const [electionPlayer, setElectionPlayer] = useState({});
   const [electionMachine, setElectionMachine] = useState({});
 
   const playerGame = props.isMachine ? "CPU" : "Player Two";
@@ -19,25 +19,25 @@ function Modal(props) {
       (e) => e.choice === event.target.textContent
     );
     setElectionPlayer(player);
-    const maquina = electionRival();
+    const machine = electionRival();
     if (
       player.choice &&
-      maquina.choice &&
-      player.defeat.includes(maquina.choice)
+      machine.choice &&
+      player.defeat.includes(machine.choice)
     ) {
-      props.sumarPlayer();
+      props.addPlayerWinner();
       setWinner("Winner: Player One");
     } else if (
       player.choice &&
-      maquina.choice &&
-      maquina.defeat.includes(player.choice)
+      machine.choice &&
+      machine.defeat.includes(player.choice)
     ) {
-      props.sumarMaquina();
+      props.addMachineWinner();
       setWinner(`Winner: ${playerGame}`);
     } else if (
       player.choice &&
-      maquina.choice &&
-      player.choice === maquina.choice
+      machine.choice &&
+      player.choice === machine.choice
     ) {
       setWinner("Tie");
     }
@@ -77,7 +77,7 @@ function Modal(props) {
           click={continueGame}
           winner={winner}
           secondPlayer={playerGame}
-          firstElection={choicePlayer.choice}
+          firstElection={electionPlayer.choice}
           secondElection={electionMachine.choice}
         />
       )}

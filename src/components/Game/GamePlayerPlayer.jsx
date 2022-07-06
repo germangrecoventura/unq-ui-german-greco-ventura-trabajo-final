@@ -3,9 +3,9 @@ import Counter from "../Counter";
 import "./Game.css";
 import ModalTwoPlayers from "../Modal/ModalTwoPlayers";
 
-const GamePlayerPlayerFinal = () => {
-  const [playerVictoryCounter, setPlayerAccounter] = useState(0);
-  const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
+const GamePlayerPlayer = () => {
+  const [playerOneVictoryCounter, setPlayerOneAccounter] = useState(0);
+  const [playerTwoVictoryCounter, setPlayerTwoVictoryCounter] = useState(0);
 
   return (
     <div className="game">
@@ -15,16 +15,16 @@ const GamePlayerPlayerFinal = () => {
       </div>
       <Counter
         isMachine={false}
-        firstCount={playerVictoryCounter}
-        secondCount={MachineVictoryCounter}
+        firstCount={playerOneVictoryCounter}
+        secondCount={playerTwoVictoryCounter}
       />
       <ModalTwoPlayers
         isMachine={false}
-        sumarPlayer={() => setPlayerAccounter((c) => c + 1)}
-        sumarMaquina={() => setMachineVictoryCounter((c) => c + 1)}
+        sumarPlayer={() => setPlayerOneAccounter((c) => c + 1)}
+        sumarMaquina={() => setPlayerTwoVictoryCounter((c) => c + 1)}
       ></ModalTwoPlayers>
     </div>
   );
 };
 
-export default GamePlayerPlayerFinal;
+export default GamePlayerPlayer;

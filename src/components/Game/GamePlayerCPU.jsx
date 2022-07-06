@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Counter from "../Counter";
 import "./Game.css";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/ModalOnePlayer";
 
 const GamePlayerCPU = () => {
   const [playerVictoryCounter, setPlayerAccounter] = useState(0);
-  const [MachineVictoryCounter, setMachineVictoryCounter] = useState(0);
+  const [machineVictoryCounter, setMachineVictoryCounter] = useState(0);
 
   return (
     <div className="game">
@@ -16,12 +16,12 @@ const GamePlayerCPU = () => {
       <Counter
         isMachine={true}
         firstCount={playerVictoryCounter}
-        secondCount={MachineVictoryCounter}
+        secondCount={machineVictoryCounter}
       />
       <Modal
         isMachine={true}
-        sumarPlayer={() => setPlayerAccounter((c) => c + 1)}
-        sumarMaquina={() => setMachineVictoryCounter((c) => c + 1)}
+        addPlayerWinner={() => setPlayerAccounter((c) => c + 1)}
+        addMachineWinner={() => setMachineVictoryCounter((c) => c + 1)}
       ></Modal>
     </div>
   );
