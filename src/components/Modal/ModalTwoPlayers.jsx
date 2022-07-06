@@ -36,14 +36,14 @@ function ModalTwoPlayers(props) {
       playerTwo.choice &&
       choicePlayer.defeat.includes(playerTwo.choice)
     ) {
-      props.sumarPlayer();
+      props.addPlayerOneWinner();
       setWinner("Winner: Player One");
     } else if (
       choicePlayer.choice &&
       playerTwo.choice &&
       playerTwo.defeat.includes(choicePlayer.choice)
     ) {
-      props.sumarMaquina();
+      props.addPlayerTwoWinner();
       setWinner(`Winner: ${playerGame}`);
     } else if (
       choicePlayer.choice &&
