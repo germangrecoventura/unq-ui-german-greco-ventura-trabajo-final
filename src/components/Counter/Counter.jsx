@@ -7,9 +7,9 @@ const Counter = (props) => {
 
   return (
     <div className="counter">
-      <p>Games won by <img src={user} className="image-count"/>: {props.firstCount}</p>
+      <p>Games won by <img src={user} className="image-count" alt="icon-player-one"/>: {props.firstCount}</p>
       <p>
-        Games won by <img src={player} className="image-count"/>: {props.secondCount}
+        Games won by <img src={player} className="image-count" alt="icon-player-two-ia"/>: {props.secondCount}
       </p>
     </div>
   );

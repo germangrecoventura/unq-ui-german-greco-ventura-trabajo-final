@@ -13,10 +13,10 @@ function Home() {
           <h2> Select your game mode</h2>
           <div className="selector-games">
             <Link to="/one-player">
-              <img src={onePlayer} alt="Player VS IA" className="image-game" />
+              <img src={onePlayer} alt="player-vs-ia" className="image-game"/>
             </Link>
             <Link to="/two-players" >
-              <img src={twoPlayer} alt="Player VS Player" className="image-game" />
+              <img src={twoPlayer} alt="player-vs-player" className="image-game" />
             </Link>
           </div>
         </div>

@@ -10,9 +10,9 @@
 }
 
 .option {
-  color: black;
+  color: rgb(253, 253, 253);
   font-size: 30px;
-  background-color: rgba(255, 255, 255, 0.493);
+  background-color: rgba(0, 0, 0, 0.911);
   border: 1px solid black;
   border-radius: 40rem;
   padding: 1rem;
@@ -20,5 +20,5 @@
 }
 
 .two{
-  background-color: #dd9999;
+  background-color: rgba(0, 0, 0, 0.911);
 }
