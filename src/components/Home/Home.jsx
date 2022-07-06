@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import onePlayer from "./images/OnePlayer.png";
-import twoPlayer from "./images/Two Player.png";
+import twoPlayer from "./images/TwoPlayer.png";
 import { Link } from "react-router-dom";
 
 function Home() {
