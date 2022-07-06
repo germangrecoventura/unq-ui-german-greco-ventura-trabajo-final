@@ -17,4 +17,5 @@ Otherwise download the repository zip and extract it
 2 - Once the repository is cloned or downloaded, position yourself in the project folder, open the terminal and enter the following commands:
 
     npm install
+
     npm start
