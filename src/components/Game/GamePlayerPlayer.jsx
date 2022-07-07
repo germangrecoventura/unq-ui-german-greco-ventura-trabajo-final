@@ -10,7 +10,7 @@ const GamePlayerPlayer = () => {
   return (
     <div className="game">
       <div className="tittle-game">
-        <h1> Player VS Player </h1>
+        <h1> Player One VS Player Two</h1>
       </div>
       <Counter
         isMachine={false}
