@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import SliderSetings from "../Game/SliderSetings";
 import Option from "../Option";
-import PossibleCases from "../Option/PossibleCases";
+import PossibleCases from "../../PossibleCases";
 import "./Modal.css";
 import ModalResult from "./ModalResult";
 
@@ -59,6 +59,7 @@ const ModalOnePlayer = (props) => {
   return (
     <div>
       <div className={`available-options`}>
+        Select Player One:
         <Slider {...SliderSetings}>
           {PossibleCases.map((e, index) => (
             <Option

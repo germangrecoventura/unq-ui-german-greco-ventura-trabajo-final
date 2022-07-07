@@ -1,11 +1,11 @@
 const PossibleCases = [
   {
-    choice: "Rock",
+    choice: "Stone",
     defeat: ["Lizard", "Scissors"],
   },
   {
     choice: "Paper",
-    defeat: ["Rock", "Spock"],
+    defeat: ["Stone", "Spock"],
   },
   {
     choice: "Scissors",
@@ -17,7 +17,7 @@ const PossibleCases = [
   },
   {
     choice: "Spock",
-    defeat: ["Scissors", "Rock"],
+    defeat: ["Scissors", "Stone"],
   },
 ];
 
