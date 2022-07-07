@@ -18,7 +18,6 @@ const GamePlayerCPU = () => {
         secondCount={machineVictoryCounter}
       />
       <Modal
-        isMachine={true}
         addPlayerWinner={() => setPlayerAccounter((c) => c + 1)}
         addMachineWinner={() => setMachineVictoryCounter((c) => c + 1)}
       ></Modal>

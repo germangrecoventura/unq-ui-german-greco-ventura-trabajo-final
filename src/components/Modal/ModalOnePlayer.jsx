@@ -12,8 +12,6 @@ const ModalOnePlayer = (props) => {
   const [electionPlayer, setElectionPlayer] = useState({});
   const [electionMachine, setElectionMachine] = useState({});
 
-  const playerGame = props.isMachine ? "CPU" : "Player Two";
-
   const toggleModal = (event) => {
     const player = PossibleCases.find(
       (e) => e.choice === event.target.textContent
@@ -33,7 +31,7 @@ const ModalOnePlayer = (props) => {
       machine.defeat.includes(player.choice)
     ) {
       props.addMachineWinner();
-      setWinner(`Winner: ${playerGame}`);
+      setWinner(`Winner: CPU`);
     } else if (
       player.choice &&
       machine.choice &&
@@ -76,7 +74,7 @@ const ModalOnePlayer = (props) => {
         <ModalResult
           click={continueGame}
           winner={winner}
-          secondPlayer={playerGame}
+          secondPlayer="CPU"
           firstElection={electionPlayer.choice}
           secondElection={electionMachine.choice}
         />

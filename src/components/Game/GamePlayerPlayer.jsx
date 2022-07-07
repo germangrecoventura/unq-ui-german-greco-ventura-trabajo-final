@@ -18,7 +18,6 @@ const GamePlayerPlayer = () => {
         secondCount={playerTwoVictoryCounter}
       />
       <ModalTwoPlayers
-        isMachine={false}
         addPlayerOneWinner={() => setPlayerOneAccounter((c) => c + 1)}
         addPlayerTwoWinner={() => setPlayerTwoVictoryCounter((c) => c + 1)}
       ></ModalTwoPlayers>
