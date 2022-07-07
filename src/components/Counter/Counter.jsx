@@ -1,6 +1,6 @@
 import "./Counter.css";
-import ia from "./brain.png";
-import user from "./user.png";
+import ia from "./images/brain.png";
+import user from "./images/user.png";
 
 const Counter = (props) => {
   const player = props.isMachine ? ia : user;
