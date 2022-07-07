@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <div class="title">Rock, Paper, Scissors, Lizard, Spock</div>
+        <div class="title">Stone, Paper, Scissors, Lizard, Spock</div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/one-player" element={<GamePlayerCPU />} />
